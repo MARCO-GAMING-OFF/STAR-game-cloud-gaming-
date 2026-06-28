@@ -1,0 +1,337 @@
+/* Variables générales */
+:root {
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --success: #00ff00;
+    --danger: #ff4444;
+    --dark: #1a1a2e;
+    --darker: #16213e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Écrans */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Écran d'authentification */
+#auth-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    border: 3px solid var(--primary);
+}
+
+.auth-container h1 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 42px;
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.auth-container p {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.auth-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Écran du lobby */
+.lobby-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid var(--primary);
+    color: white;
+}
+
+.player-info {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+}
+
+.player-info h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.player-info p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.lobby-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.matchmaking, .leaderboard {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+}
+
+.matchmaking h3, .leaderboard h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+#find-match-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#find-match-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+#find-match-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(0, 255, 0, 0.1);
+    border-left: 3px solid var(--success);
+    border-radius: 5px;
+}
+
+.rank {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.name {
+    flex: 1;
+    margin: 0 15px;
+    color: white;
+}
+
+.points {
+    color: var(--success);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--success);
+}
+
+#logout-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#logout-btn:hover {
+    background: #ff4444;
+    transform: translateY(-2px);
+}
+
+/* Écran de combat */
+.battle-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid var(--primary);
+    min-height: 80vh;
+}
+
+.player-side, .opponent-side {
+    color: white;
+}
+
+.player-side h3, .opponent-side h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.player-card, .opponent-card {
+    background: rgba(102, 126, 234, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+}
+
+.player-card p, .opponent-card p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.hp-bar {
+    width: 100%;
+    height: 30px;
+    background: #333;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+}
+
+.hp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success), #00cc00);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+}
+
+#battle-log {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--success);
+    font-size: 14px;
+    max-height: 300px;
+    overflow-y: auto;
+    text-shadow: 0 0 5px var(--success);
+}
+
+#battle-log p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.battle-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.battle-actions button {
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.battle-actions button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.battle-actions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lobby-content {
+        grid-template-columns: 1fr;
+    }
+
+    .battle-container {
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .player-side {
+        order: 1;
+    }
+
+    .opponent-side {
+        order: 3;
+    }
+
+    #battle-log {
+        order: 2;
+    }
+
+    .battle-actions {
+        order: 4;
+        grid-template-columns: 1fr;
+    }
+
+    .auth-container {
+        padding: 40px 20px;
+    }
+}
